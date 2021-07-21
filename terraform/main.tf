@@ -4,17 +4,29 @@ provider "google" {
 }
 
 # Enable APIs
+
+module "project-services" {
+  source  = "terraform-google-modules/project-factory/google//modules/project_services"
+  version = "2.1.3"
+
+  project_id                  = var.project_id
+
+  activate_apis = [
+    "iam.googleapis.com", 
+    "cloudresourcemanager.googleapis.com",
+    "pubsub.googleapis.com",
+    "dataflow.googleapis.com",
+    "bigtable.googleapis.com",
+    "bigtableadmin.googleapis.com",
+    "bigtabletableadmin.googleapis.com",
+    "bigquery.googleapis.com"
+  ]
+}
+
 resource "google_project_services" "project" {
+  provider
   project   = var.project_id
-  services  = ["iam.googleapis.com", 
-                "cloudresourcemanager.googleapis.com",
-                "pubsub.googleapis.com",
-                "dataflow.googleapis.com",
-                "bigtable.googleapis.com",
-                "bigtableadmin.googleapis.com",
-                "bigtabletableadmin.googleapis.com",
-                "bigquery.googleapis.com"
-            ]
+  services  = [
 }
 
 module "bigquery" {
