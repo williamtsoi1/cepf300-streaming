@@ -33,15 +33,20 @@ module "bigquery" {
             table_id = "dollars_per_minute",
             schema = "./schema/dollars_per_minute.json",
             time_partitioning = null,
-            range_partitioning = null
+            range_partitioning = null,
+            clustering = [],
+            expiration_time = null,
+            labels = null,
         },
         {
             table_id = "rides_in_lower_manhatten",
             schema = "./schema/rides_in_lower_manhatten.json",
             time_partitioning = null,
-            range_partitioning = null
+            range_partitioning = null,
+            clustering = [],
+            expiration_time = null,
+            labels = null,
         }
-
     ]
 }
 
