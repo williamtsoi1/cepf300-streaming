@@ -3,26 +3,6 @@ provider "google" {
   region      = var.region
 }
 
-# Enable APIs
-
-module "project-services" {
-  source  = "terraform-google-modules/project-factory/google//modules/project_services"
-  version = "2.1.3"
-
-  project_id                  = var.project_id
-
-  activate_apis = [
-    "iam.googleapis.com", 
-    "cloudresourcemanager.googleapis.com",
-    "pubsub.googleapis.com",
-    "dataflow.googleapis.com",
-    "bigtable.googleapis.com",
-    "bigtableadmin.googleapis.com",
-    "bigtabletableadmin.googleapis.com",
-    "bigquery.googleapis.com"
-  ]
-}
-
 module "bigquery" {
     source  = "terraform-google-modules/bigquery/google"
     version = "5.2.0"
