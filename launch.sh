@@ -3,6 +3,7 @@
 # Save the variables so TF can recognize inputs
 export TF_VAR_project_id=$(gcloud config get-value project)
 export TF_VAR_region="us-central1"
+export TF_VAR_zone="us-central1-a"
 
 # Enable APIs
 gcloud services enable iam.googleapis.com --async
