@@ -1,0 +1,12 @@
+[
+    {
+        "name": "time",
+        "type": "TIMESTAMP",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "dollars_run_rate_per_minute",
+        "type": "FLOAT",
+        "mode": "REQUIRED"
+    }
+]

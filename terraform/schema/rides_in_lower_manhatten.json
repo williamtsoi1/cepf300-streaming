@@ -1,0 +1,12 @@
+[
+    {
+        "name": "time",
+        "type": "TIMESTAMP",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "rides_in_lower_manhatten",
+        "type": "INTEGER",
+        "mode": "REQUIRED"
+    }
+]
