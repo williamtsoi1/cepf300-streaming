@@ -23,12 +23,6 @@ module "project-services" {
   ]
 }
 
-resource "google_project_services" "project" {
-  provider
-  project   = var.project_id
-  services  = [
-}
-
 module "bigquery" {
     source  = "terraform-google-modules/bigquery/google"
     version = "5.2.0"
