@@ -4,6 +4,15 @@ provider "google" {
   zone        = var.zone  
 }
 
+data "google_compute_default_service_account" "gce_account" {
+}
+
+# Required as this Terraform module will be run from a GCE instance
+resource "google_project_iam_member" "project" {
+  role    = "roles/bigquery.admin"
+  member  = "serviceAccount:${google_compute_default_service_account.gce_account.email}"
+}
+
 module "bigquery" {
     source  = "terraform-google-modules/bigquery/google"
     version = "5.2.0"
