@@ -17,7 +17,7 @@ module "bigquery" {
     tables = [
         {
             table_id = "dollars_per_minute",
-            schema = "./schema/dollars_per_minute.json",
+            schema = file("${path.module}/schema/dollars_per_minute.json"),
             time_partitioning = null,
             range_partitioning = null,
             clustering = [],
@@ -26,7 +26,7 @@ module "bigquery" {
         },
         {
             table_id = "rides_in_lower_manhatten",
-            schema = "./schema/rides_in_lower_manhatten.json",
+            schema = file("${path.module}/schema/rides_in_lower_manhatten.json"),
             time_partitioning = null,
             range_partitioning = null,
             clustering = [],
