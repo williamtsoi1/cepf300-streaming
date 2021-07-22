@@ -48,7 +48,7 @@ module "bigquery" {
 
 resource "google_bigtable_instance" "taxi-rides" {
     name = "taxi-rides"
-
+    deletion_protection = false
     cluster {
         cluster_id = "taxi-rides-cluster"
         num_nodes = 1
